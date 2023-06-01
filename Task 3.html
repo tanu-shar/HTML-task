@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <title>Timetable</title>
+        <style>
+           table{border-collapse: collapse;
+            width: 100%;
+           }
+                th, td {
+      border: 1px solid black;
+      padding: 8px;
+            }
+            th {
+                color: rgb(127, 94, 160);
+                background-color: rgb(107, 187, 107);
+            }
+            td {
+                color: goldenrod;
+                background-color: brown;
+            }
+            .days{
+                color: black;
+                background-color:palevioletred ;
+            }
+            .sub{
+                   color: black;
+                   background-color: blueviolet;
+            }
+            .sub1{
+                    color: black;
+                    background-color: peru;
+            }
+            .sub2{
+                     color: black;
+                     background-color: darkolivegreen;
+            }
+            .sub3{
+                      color: black;
+                      background-color: grey;
+            }
+            .sub4{
+                   color: black;
+                   background-color: hotpink;
+            }
+            .suba{
+                color: black;
+                background-color: grey;
+            }
+            h1{
+                text-align: center;
+            }
+        </style>
+        <script>
+            // Function to highlight the current time slot
+            function highlightCurrent() {
+                var currentDate = new Date();
+                var currentTime = currentDate.getHours() * 60 + currentDate.getMinutes(); // Get the current time in minutes
+    
+                var cells = document.getElementsByClassName("sub");
+                for (var i = 0; i < cells.length; i++) {
+                    var timeSlot = cells[i].textContent.split(" to ");
+                    var startTime = parseInt(timeSlot[0].split(":")[0]) * 60 + parseInt(timeSlot[0].split(":")[1]);
+                    var endTime = parseInt(timeSlot[1].split(":")[0]) * 60 + parseInt(timeSlot[1].split(":")[1]);
+                    if (currentTime >= startTime && currentTime <= endTime) {
+                        cells[i].classList.add("current");
+                    }
+                }
+            }
+    
+            // Call the highlightCurrent function initially
+            highlightCurrent();
+        </script>
+    </head>
+    <body>
+        <h1>Timetable</h1>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>08:30 to 09:20</th>
+                <th>09:20 to 10:10</th>
+                <th>10:10 to 11:00</th>
+                <th>11:00 to 11:50</th>
+                <th>11:50 to 12:40</th>
+                <th>12:40 to 01:30</th>
+                <th>01:30 to 02:20</th>
+                <th>02:20 to 03:10</th>
+                <th>03:10 to 04:00</th>
+            </tr>
+            <tr>
+                <td class="days">Monday</td>
+                <td class="sub">KCS401</td>
+                <td class="sub1" >KCS402</td>
+                <td rowspan="5">Mentorship Break</td>
+                <td class="sub2">KNC402</td>
+                <td class="suba">KIT401</td>
+                <td rowspan="5">Lunch</td>
+                <td>OE</td>
+                <td class="sub3">KIT401</td>
+                <td class="sub4">KAS401</td>
+            </tr>
+            <tr>
+                <td class="days">Tuesday</td>
+                <td class="sub">KCS401</td>
+                <td class="sub1">KCS402</td>
+                <td class="sub2">KNC402</td>
+                <td class="suba">KIT401</td>
+                <td>OE</td>
+                <td class="sub3">KIT401</td>
+                <td class="sub4">KAS401</td>
+            </tr>
+            <tr>
+            <td class="days">Wednesday</td>
+                <td class="sub">KCS401</td>
+                <td class="sub1">KCS402</td>
+                <td class="sub2">KNC402</td>
+                <td class="suba">KIT401</td>
+                <td>OE</td>
+                <td class="sub3">KIT401</td>
+                <td class="sub4">KAS401</td></tr>
+                <tr>
+                <td class="days">Thursday</td>
+                <td class="sub">KCS401</td>
+                <td class="sub1">KCS402</td>
+                <td class="sub2">KNC402</td>
+                <td class="suba">KIT401</td>
+                <td>OE</td>
+                <td class="sub3">KIT401</td>
+                <td class="sub4">KAS401</td>
+                </tr>
+                <tr>
+                <td class="days">Friday</td>
+                <td class="sub">KCS401</td>
+                <td class="sub1">KCS402</td>
+                <td  class="sub2">KNC402</td>
+                <td class="suba">KIT401</td>
+                <td>OE</td>
+                <td class="sub3">KIT401</td>
+                <td class="sub4">KAS401</td>
+                </tr>
+                <tr>
+                    <td class="days">Saturday</td>
+                    <td colspan="9">Holiday</td>
+                </tr>
+                <tr>
+                    <td class="days">Sunday</td>
+                    <td colspan="9">Holiday</td>
+                </tr>
+        </table>
+    </body>
+</html>
